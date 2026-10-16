@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "handpal"
+version = "0.1.0"
+description = "Write with your mouse as if by hand: Handpal draws your text, stroke by stroke, in any app."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Nico Palermo" }]
+keywords = ["handwriting", "mouse", "automation", "whiteboard", "annotation", "windows"]
+classifiers = [
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Environment :: Win32 (MS Windows)",
+    "Topic :: Utilities",
+]
+dependencies = ["PySide6-Essentials>=6.7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyinstaller>=6"]
+
+[project.gui-scripts]
+handpal = "handpal.ui:main"
+
+[project.urls]
+Homepage = "https://github.com/nicoopal/handpal"
+
+[tool.setuptools]
+packages = ["handpal"]
+
+[tool.setuptools.package-data]
+handpal = ["fonts/*.svg", "fonts/OFL.txt", "fonts/CREDITS.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
